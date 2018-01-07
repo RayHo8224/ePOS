@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.requisition.model.ReqVO" table="dbo.REQUISITION">
+	
+	<id name="req_id" column="req_id">
+		<generator class="generator.Req_Generator" /> 
+	</id>
+
+	<property name="key_id" column="key_id"/>	
+	<property name="key_date" column="key_date"/>
+	<property name="status" column="status"/>
+	
+<!-- 	<set name="reqDetails" table="REQUISITION_DETAIL" lazy="false" -->
+	<set name="reqDetails" table="REQUISITION_DETAIL" lazy="true"
+		cascade="all" inverse="true" order-by="req_id asc">
+		<key><column name="req_id"/></key>
+		<one-to-many class="com.requisition_detail.model.ReqDetailVO"/>
+	</set>
+					
+	</class>
+
+</hibernate-mapping>

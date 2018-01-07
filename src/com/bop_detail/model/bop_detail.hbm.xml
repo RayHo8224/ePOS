@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.bop_detail.model.Bop_detailVO" table="BOP_DETAIL" >
+	
+		<composite-id>
+		
+<!-- 			<key-many-to-one name="bopVO" class="com.bop.model.BopVO" lazy="false" > -->
+			<key-many-to-one name="bopVO" class="com.bop.model.BopVO" >
+			
+				<column name="bop_id" />
+				
+			</key-many-to-one>
+			
+			<key-property name="prod_id" column="prod_id" /> 
+			
+			
+			
+		</composite-id>
+		
+		<property name="prod_name" column="prod_name" />
+		<property name="prod_quantity" column="prod_quantity" />
+		<property name="prod_price" column="prod_price" />
+		<property name="prod_lsum" column="prod_lsum" />
+		
+
+	
+	
+	
+	
+	</class>
+
+
+
+
+
+
+</hibernate-mapping>

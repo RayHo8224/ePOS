@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.returns.model.RtnListVO" table="RETURNLIST">
+
+		<id name="ret_id" column="ret_id">
+			<generator class="generator.RtnList_Generator"/>
+		</id>
+
+		<property name="ret_date" column="ret_date" />
+		<property name="com_id" column="com_id" />
+		<property name="com_name" column="com_name" />
+		<property name="key_id" column="key_id" />
+		<property name="key_date" column="key_date" />
+		<property name="remark" column="remark" />
+		<property name="status" column="status" />
+
+		<set name="rtnDetail" table="RETRUN_DETAIL" cascade="all"  inverse="true"  order-by="ret_id asc">			
+			<key>
+				<column name="ret_id" />
+			</key>
+			<one-to-many class="com.returns.model.RtnDetailVO" />
+		</set>
+
+	</class>
+</hibernate-mapping>
+
