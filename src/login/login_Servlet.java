@@ -81,7 +81,7 @@ public class login_Servlet extends HttpServlet {
 					session.setAttribute("SHIFT", "B");
 				}
 
-				response.sendRedirect("/epos/ORDER/order.jsp");
+				response.sendRedirect("/ePOS/ORDER/order.jsp");
 
 			} else {
 				errorMsgMap.put("LoginError", "該帳號不存在或密碼錯誤");
