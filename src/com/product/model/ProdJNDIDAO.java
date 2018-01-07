@@ -18,7 +18,7 @@ public class ProdJNDIDAO implements ProdDAO_interface {
 	static{
 		try {
 			Context ctx = new InitialContext();
-			ds=(DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+			ds=(DataSource) ctx.lookup("java:comp/env/jdbc/ePOS");
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
