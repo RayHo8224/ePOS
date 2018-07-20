@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.requisition_detail.model.ReqDetailVO;
 
@@ -55,7 +55,7 @@ public class ReqDAO implements Req_Interface{
 	@Override
 	public List<ReqVO> getAll() {
 		List<ReqVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_STMT);
+		list = (List<ReqVO>) hibernateTemplate.find(GET_ALL_STMT);
 		return list;
 	}
 	@Override
@@ -67,7 +67,7 @@ public class ReqDAO implements Req_Interface{
 	public List<ReqVO> findByDate(Date beginDate, Date endDate) {
 		// TODO Auto-generated method stub
 		List<ReqVO> list = null;
-		list= hibernateTemplate.find(GET_BY_DATE,new Object[]{beginDate,endDate});
+		list= (List<ReqVO>) hibernateTemplate.find(GET_BY_DATE,new Object[]{beginDate,endDate});
 			
 		return list;
 	}
@@ -76,7 +76,7 @@ public class ReqDAO implements Req_Interface{
 	public List<ReqVO> selectOfN() {
 		// TODO Auto-generated method stub
 		List<ReqVO> list = null;
-		list = hibernateTemplate.find(SELECT_OF_N);
+		list = (List<ReqVO>) hibernateTemplate.find(SELECT_OF_N);
 		return list;
 	}
 
@@ -84,7 +84,7 @@ public class ReqDAO implements Req_Interface{
 	public List<ProdVO> getAllProd() {
 		// TODO Auto-generated method stub
 		List<ProdVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_PROD);
+		list = (List<ProdVO>) hibernateTemplate.find(GET_ALL_PROD);
 		return list;
 	}
 	

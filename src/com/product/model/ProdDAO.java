@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 
 public class ProdDAO implements ProdDAO_interface {
@@ -42,7 +42,7 @@ public class ProdDAO implements ProdDAO_interface {
 	@Override
 	public List<ProdVO> getAll() {
 		List<ProdVO> list = null;
-			list= hibernateTemplate.find(GET_ALL_STMT);
+			list= (List<ProdVO>) hibernateTemplate.find(GET_ALL_STMT);
 			
 		return list;	
 		}
@@ -52,7 +52,7 @@ public class ProdDAO implements ProdDAO_interface {
 	public List<ProdVO> findByName(String prod_name) {
 		
 		List<ProdVO> list = null;
-		list= hibernateTemplate.find("from ProdVO where prod_name like '%"+prod_name+"%'");
+		list= (List<ProdVO>) hibernateTemplate.find("from ProdVO where prod_name like '%"+prod_name+"%'");
 		return list;
 		}
 	
@@ -60,7 +60,7 @@ public class ProdDAO implements ProdDAO_interface {
 	public List<ProdVO> findByGroup(String prod_group) {
 		
 		List<ProdVO> list = null;
-			list= hibernateTemplate.find("from ProdVO where prod_group like '%"+prod_group+"%'");
+			list= (List<ProdVO>) hibernateTemplate.find("from ProdVO where prod_group like '%"+prod_group+"%'");
 			
 		return list;
 		}
@@ -70,7 +70,7 @@ public class ProdDAO implements ProdDAO_interface {
 		List<ProdVO> list = new ArrayList<ProdVO>();
 		ProdVO prodVO =null;
 		List<String> temp = null;
-		temp = hibernateTemplate.find("select prod_group from ProdVO group by prod_group");
+		temp = (List<String>) hibernateTemplate.find("select prod_group from ProdVO group by prod_group");
 		Iterator<String> iterator =	temp.iterator();
 			while(iterator.hasNext()) {
 				prodVO = new ProdVO();

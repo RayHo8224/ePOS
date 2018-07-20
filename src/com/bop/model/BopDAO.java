@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.bop_detail.model.Bop_detailVO;
 import com.company.model.ComVO;
@@ -67,7 +67,7 @@ public class BopDAO implements Bop_Interface {
 	public List<Bop_detailVO> findDetailByPrimaryKey(String bop_id) {
 		// TODO Auto-generated method stub
 //		Set<Bop_detailVO> set = findByPrimaryKey(bop_id).getBops();
-		List<Bop_detailVO> set=hibernateTemplate.find(GET_DETAIL_BOPID,bop_id);
+		List<Bop_detailVO> set=(List<Bop_detailVO>) hibernateTemplate.find(GET_DETAIL_BOPID,bop_id);
 		return set;
 	}
 
@@ -75,7 +75,7 @@ public class BopDAO implements Bop_Interface {
 	public List<BopVO> getAll() {
 		// TODO Auto-generated method stub
 		List<BopVO> list = null;
-		list = hibernateTemplate.find(GETALL);
+		list = (List<BopVO>) hibernateTemplate.find(GETALL);
 		return list;
 	}
 	
@@ -87,7 +87,7 @@ public class BopDAO implements Bop_Interface {
 	@Override
 	public List<PurVO> selectOfY() {
 		// TODO Auto-generated method stub
-		List<PurVO> list = hibernateTemplate.find(SELECT_OF_Y);
+		List<PurVO> list = (List<PurVO>) hibernateTemplate.find(SELECT_OF_Y);
 		return list;
 	}
 
@@ -108,7 +108,7 @@ public class BopDAO implements Bop_Interface {
 	public List<BopVO> findByDate(Date begin_date, Date end_date) {
 		// TODO Auto-generated method stub
 		List<BopVO> list = null;
-		list = hibernateTemplate.find(FIND_BY_DATE, new Object[]{begin_date,end_date});
+		list = (List<BopVO>) hibernateTemplate.find(FIND_BY_DATE, new Object[]{begin_date,end_date});
 		return list;
 	}
 
@@ -116,7 +116,7 @@ public class BopDAO implements Bop_Interface {
 	public List<BopVO> selectOfN() {
 		// TODO Auto-generated method stub
 		List<BopVO> list = null;
-		list = hibernateTemplate.find(SELECT_OF_N);
+		list = (List<BopVO>) hibernateTemplate.find(SELECT_OF_N);
 		return list;
 	}
 
@@ -124,7 +124,7 @@ public class BopDAO implements Bop_Interface {
 	public List<BopVO> selectOfY2() {
 		// TODO Auto-generated method stub
 		List<BopVO> list = null;
-		list = hibernateTemplate.find(SELECT_OF_Y2);
+		list = (List<BopVO>) hibernateTemplate.find(SELECT_OF_Y2);
 		return list;
 	}
 
@@ -133,7 +133,7 @@ public class BopDAO implements Bop_Interface {
 		// TODO Auto-generated method stub
 		
 		List<Object[]> list = null;
-		list = hibernateTemplate.find(GET_RATIO, bop_month);
+		list = (List<Object[]>) hibernateTemplate.find(GET_RATIO, bop_month);
 		return list;
 	}
 
@@ -141,7 +141,7 @@ public class BopDAO implements Bop_Interface {
 	public List<BopVO> selectOfS() {
 		// TODO Auto-generated method stub
 		List<BopVO> list = null;
-		list = hibernateTemplate.find(SELECT_OF_S);
+		list = (List<BopVO>) hibernateTemplate.find(SELECT_OF_S);
 		return list;
 	}
 
@@ -149,7 +149,7 @@ public class BopDAO implements Bop_Interface {
 	public String getMonthCost(String bop_month) {
 		// TODO Auto-generated method stub
 		List<Object> list = null;
-		list = hibernateTemplate.find(GET_MONTH_COST, bop_month);
+		list = (List<Object>) hibernateTemplate.find(GET_MONTH_COST, bop_month);
 		String co = null;
 		for(Object co0 : list){
 			co = String.valueOf(co0);
@@ -161,7 +161,7 @@ public class BopDAO implements Bop_Interface {
 	public String getComName(String com_id) {
 		// TODO Auto-generated method stub
 		List<ComVO> list = null;
-		list = hibernateTemplate.find(GET_COM_ID, com_id);
+		list = (List<ComVO>) hibernateTemplate.find(GET_COM_ID, com_id);
 		String comName = list.get(0).getCom_name();
 		return comName;
 	}

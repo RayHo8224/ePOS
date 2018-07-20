@@ -7,7 +7,7 @@ import com.order.model.OrderVO;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import hibernate.util.HibernateUtil;
 
@@ -25,7 +25,7 @@ public class Order_detailSpringDAO implements Order_Detail_Interface{
 	public List Select_order_detailALL(String ord_id) throws Exception {
 		
 		List<Order_DetailVO> list = null;
-		list=hibernateTemplate.find(GET_ONE_STMT_ORDERID,ord_id);
+		list=(List<Order_DetailVO>) hibernateTemplate.find(GET_ONE_STMT_ORDERID,ord_id);
 			
 		return list;
 	}
@@ -106,7 +106,7 @@ public class Order_detailSpringDAO implements Order_Detail_Interface{
 	public List<Order_DetailVO> getAll() {
 
 		List<Order_DetailVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_STMT);
+		list = (List<Order_DetailVO>) hibernateTemplate.find(GET_ALL_STMT);
 
 		return list;
 	}

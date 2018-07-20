@@ -2,7 +2,7 @@ package com.member.model;
 
 import java.sql.Date;
 import java.util.List;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 
 public class MemberDAO implements MemberDAO_interface{
@@ -43,21 +43,21 @@ public class MemberDAO implements MemberDAO_interface{
 	@Override
 	public List<MemberVO> getAll() {
 		List<MemberVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_STMT);
+		list = (List<MemberVO>) hibernateTemplate.find(GET_ALL_STMT);
 		return list;
 	}
 
 	@Override
 	public List<MemberVO> getIds(String mem_id_1, String mem_id_2) {
 		List<MemberVO> list = null;
-		list = hibernateTemplate.find(GET_IDS_STMT,new String[]{mem_id_1, mem_id_2});
+		list = (List<MemberVO>) hibernateTemplate.find(GET_IDS_STMT,new String[]{mem_id_1, mem_id_2});
 		return list;
 	}
 
 	@Override
 	public List<MemberVO> getDates(Date key_date_1, Date key_date_2) {
 		List<MemberVO> list = null;
-		list = hibernateTemplate.find(GET_K_DATES_STMT,new Date[]{key_date_1, key_date_2});
+		list = (List<MemberVO>) hibernateTemplate.find(GET_K_DATES_STMT,new Date[]{key_date_1, key_date_2});
 		return list;
 	}
 

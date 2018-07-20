@@ -2,7 +2,7 @@ package com.returns.model;
 
 import java.util.List;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 
 
@@ -47,7 +47,7 @@ public class RtnItemsDAO implements RtnItems_Interface{
 	@Override
 	public List<RtnItemsVO> findByName(String prod_name) {
 		List<RtnItemsVO> list = null;
-		list = hibernateTemplate.find(GET_NAME,prod_name);
+		list = (List<RtnItemsVO>) hibernateTemplate.find(GET_NAME,prod_name);
 
 		return list;
 	}
@@ -55,7 +55,7 @@ public class RtnItemsDAO implements RtnItems_Interface{
 	@Override
 	public List<RtnItemsVO> findById(String com_id) {
 		List<RtnItemsVO> list = null;
-		list = hibernateTemplate.find(GET_ID, com_id);
+		list = (List<RtnItemsVO>) hibernateTemplate.find(GET_ID, com_id);
 		return list;
 	}
 	
@@ -64,7 +64,7 @@ public class RtnItemsDAO implements RtnItems_Interface{
 	@Override
 	public List<RtnItemsVO> getAll() {
 		List<RtnItemsVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_STMT);
+		list = (List<RtnItemsVO>) hibernateTemplate.find(GET_ALL_STMT);
 		return list;
 	}
 

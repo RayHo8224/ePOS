@@ -1,6 +1,6 @@
 package com.discount.model;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.coupon.model.CouponVO;
 
@@ -44,7 +44,7 @@ public class DiscountDAO implements DiscountDAO_interface{
 	@Override
 	public List<DiscountVO> getAll() {
 		List<DiscountVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_STMT);
+		list = (List<DiscountVO>) hibernateTemplate.find(GET_ALL_STMT);
 		return list;
 	}
 
@@ -53,7 +53,7 @@ public class DiscountDAO implements DiscountDAO_interface{
 		List<DiscountVO> list = new ArrayList<DiscountVO>();
 		DiscountVO discountVO = null;
 		List<Float> temp = null;
-		temp = hibernateTemplate.find(GROUP_PRICE_STMT);		
+		temp = (List<Float>) hibernateTemplate.find(GROUP_PRICE_STMT);		
 		Iterator<Float> iterator =	temp.iterator();	
 		while(iterator.hasNext()) {
 			discountVO = new DiscountVO();
@@ -67,7 +67,7 @@ public class DiscountDAO implements DiscountDAO_interface{
 	@Override
 	public List<DiscountVO> findByPrice(float dis_price) {
 		List<DiscountVO> list = null;
-		list = hibernateTemplate.find(GET_BYPRICE_STMT,dis_price);
+		list = (List<DiscountVO>) hibernateTemplate.find(GET_BYPRICE_STMT,dis_price);
 		return list;
 	}
 

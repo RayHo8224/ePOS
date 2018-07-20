@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 
 public class ShiftreSpringDAO implements ShiftreDAO_interface {
@@ -39,7 +39,7 @@ public class ShiftreSpringDAO implements ShiftreDAO_interface {
 	@Override
 	public ShiftreVO findByPrimaryKey(Date Date, String shift) {
 		ShiftreVO shiftreVO = null;
-		List<ShiftreVO> list = hibernateTemplate.find("from ShiftreVO where Date=? and shift=?",new Object[]{Date,shift});	
+		List<ShiftreVO> list = (List<ShiftreVO>) hibernateTemplate.find("from ShiftreVO where Date=? and shift=?",new Object[]{Date,shift});	
 			
 			for(ShiftreVO shiftreVO1 : list){
 				shiftreVO=shiftreVO1;
@@ -52,7 +52,7 @@ public class ShiftreSpringDAO implements ShiftreDAO_interface {
 	public List<ShiftreVO> getAll() {
 		List<ShiftreVO> list = null;
 		
-		 list = hibernateTemplate.find(GET_ALL_STMT);
+		 list = (List<ShiftreVO>) hibernateTemplate.find(GET_ALL_STMT);
 			
 		return list;
 
@@ -61,7 +61,7 @@ public class ShiftreSpringDAO implements ShiftreDAO_interface {
 	@Override
 	public List<ShiftreVO> findByDate(Date Date) {
 		List<ShiftreVO> list = null;
-		list=hibernateTemplate.find("from ShiftreVO where Date ='"+Date+"'");
+		list=(List<ShiftreVO>) hibernateTemplate.find("from ShiftreVO where Date ='"+Date+"'");
 			
 		return list;
 	}
@@ -69,7 +69,7 @@ public class ShiftreSpringDAO implements ShiftreDAO_interface {
 	public List<ShiftreVO> getSumJson(Date Date1,Date Date2,String shift) {
 		List<ShiftreVO> list = new ArrayList<ShiftreVO>();
 		
-		 list = hibernateTemplate.find("select * from ShiftreVO where Date between ? and ? and shift = ?",Date1,Date2,shift);
+		 list = (List<ShiftreVO>) hibernateTemplate.find("select * from ShiftreVO where Date between ? and ? and shift = ?",Date1,Date2,shift);
 			
 		return list;
 

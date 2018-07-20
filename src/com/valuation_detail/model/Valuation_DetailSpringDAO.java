@@ -9,7 +9,7 @@ import com.valuation.model.ValuationVO;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import hibernate.util.HibernateUtil;
 
@@ -27,7 +27,7 @@ public class Valuation_DetailSpringDAO implements Valuation_Detail_Interface {
 	@Override
 	public List Select_valuation_detailALL(String vlt_id) throws Exception {
 		List<Order_DetailVO> list = null;
-		list=hibernateTemplate.find(GET_ONE_STMT_VALUAYIONID,vlt_id);
+		list=(List<Order_DetailVO>) hibernateTemplate.find(GET_ONE_STMT_VALUAYIONID,vlt_id);
 		return list;
 	}
 

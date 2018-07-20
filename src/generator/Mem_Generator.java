@@ -3,7 +3,7 @@ package generator;
 import java.io.*;
 import java.sql.*;
 import org.hibernate.HibernateException;
-import org.hibernate.engine.SessionImplementor;
+import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.id.IdentifierGenerator;
 
 public class Mem_Generator implements IdentifierGenerator {

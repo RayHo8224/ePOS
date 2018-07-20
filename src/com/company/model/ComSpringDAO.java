@@ -2,7 +2,7 @@ package com.company.model;
 
 import java.util.List;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 
 public class ComSpringDAO implements ComDAO_interface {
@@ -47,7 +47,7 @@ public class ComSpringDAO implements ComDAO_interface {
 		
 		List<ComVO> list = null;
 	
-		list = hibernateTemplate.find(GET_ALL_STMT);
+		list = (List<ComVO>) hibernateTemplate.find(GET_ALL_STMT);
 			
 		return list;	
 		}
@@ -57,7 +57,7 @@ public class ComSpringDAO implements ComDAO_interface {
 
 		List<ComVO> list = null;
 	
-			list = hibernateTemplate.find("from ComVO where com_name like '%"+com_name+"%'");
+			list = (List<ComVO>) hibernateTemplate.find("from ComVO where com_name like '%"+com_name+"%'");
 		
 		return list;
 		}

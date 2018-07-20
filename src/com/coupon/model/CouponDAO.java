@@ -1,6 +1,6 @@
 package com.coupon.model;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -48,7 +48,7 @@ public class CouponDAO implements CouponDAO_interface{
 	@Override
 	public List<CouponVO> getAll() {
 		List<CouponVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_STMT);
+		list = (List<CouponVO>) hibernateTemplate.find(GET_ALL_STMT);
 		return list;
 	}
 	
@@ -57,7 +57,7 @@ public class CouponDAO implements CouponDAO_interface{
 		List<CouponVO> list = new ArrayList<CouponVO>();
 		CouponVO couponVO = null;
 		List<String> temp = null;
-		temp = hibernateTemplate.find(GET_NameGroup_STMT);		
+		temp = (List<String>) hibernateTemplate.find(GET_NameGroup_STMT);		
 		Iterator<String> iterator =	temp.iterator();	
 		while(iterator.hasNext()) {
 			couponVO = new CouponVO();
@@ -70,7 +70,7 @@ public class CouponDAO implements CouponDAO_interface{
 	@Override
 	public List<CouponVO> findByNames(String cpon_name) {
 		List<CouponVO> list = null;
-		list = hibernateTemplate.find(GET_Names_STMT, cpon_name);
+		list = (List<CouponVO>) hibernateTemplate.find(GET_Names_STMT, cpon_name);
 		return list;
 	}
 
@@ -79,7 +79,7 @@ public class CouponDAO implements CouponDAO_interface{
 		List<CouponVO> list = new ArrayList<CouponVO>();
 		CouponVO couponVO = null;
 		List<Integer> temp = null;
-		temp = hibernateTemplate.find(GET_DollarGroup_STMT);
+		temp = (List<Integer>) hibernateTemplate.find(GET_DollarGroup_STMT);
 		Iterator<Integer> iterator =	temp.iterator();	
 		while(iterator.hasNext()) {
 			couponVO = new CouponVO();
@@ -92,14 +92,14 @@ public class CouponDAO implements CouponDAO_interface{
 	@Override
 	public List<CouponVO> findByDollar(int cpon_dollar) {
 		List<CouponVO> list = null;
-		list = hibernateTemplate.find(GET_Dollar_STMT, cpon_dollar);		
+		list = (List<CouponVO>) hibernateTemplate.find(GET_Dollar_STMT, cpon_dollar);		
 		return list;		
 	}
 
 	@Override
 	public List<CouponVO> findByDateRange(Date release_date, Date cpon_period) {
 		List<CouponVO> list = null;
-		list = hibernateTemplate.find(GET_Dates_STMT, new Date[]{release_date, cpon_period});		
+		list = (List<CouponVO>) hibernateTemplate.find(GET_Dates_STMT, new Date[]{release_date, cpon_period});		
 		return list;	
 	}
 

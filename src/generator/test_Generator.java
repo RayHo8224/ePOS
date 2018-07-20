@@ -3,7 +3,7 @@ package generator;
 import java.io.*;
 import java.sql.*;
 import org.hibernate.HibernateException;
-import org.hibernate.engine.SessionImplementor;
+import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.id.IdentifierGenerator;
 
 public class test_Generator implements IdentifierGenerator {
@@ -12,11 +12,11 @@ public class test_Generator implements IdentifierGenerator {
 			throws HibernateException {
 		
 		
-		//­×§ï¤U­±¤T¦æ§Y¥i
+		//ï¿½×§ï¿½Uï¿½ï¿½ï¿½Tï¿½ï¿½Yï¿½i
 		//-------------------------------------------
-		String tableName="EMPLOYEE";    //table¦WºÙ
-		String fieldName="emp_id";		//"½s¸¹"Äæ¦ì¦WºÙ
-		String name="E";				//½s¸¹±MÄÝ¶}ÀY¥N¸¹
+		String tableName="EMPLOYEE";    //tableï¿½Wï¿½ï¿½
+		String fieldName="emp_id";		//"ï¿½sï¿½ï¿½"ï¿½ï¿½ï¿½Wï¿½ï¿½
+		String name="E";				//ï¿½sï¿½ï¿½ï¿½Mï¿½Ý¶}ï¿½Yï¿½Nï¿½ï¿½
 		//------------------------------------------------
 		
 		String newID;

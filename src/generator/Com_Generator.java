@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.Date;
 
 import org.hibernate.HibernateException;
-import org.hibernate.engine.SessionImplementor;
+import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.id.IdentifierGenerator;
 
 public class Com_Generator implements IdentifierGenerator {
@@ -13,15 +13,15 @@ public class Com_Generator implements IdentifierGenerator {
 	public Serializable generate(SessionImplementor session, Object object)
 			throws HibernateException {
 		
-		//±N¥»ÀÉ¦W§ï¦¨   "table¦W_Generator" «á­×§ï¤À¹j½u¤º¤T¦æµ{¦¡ 
-		//·s³Ð¤@­Ó package ¨ú¦W "generator" ±N¥»ÀÉ©ñ¸m¨ä¤º
-		//­×§ï xxxVO.java¤Uªº¬M®gÀÉ      <generator class="generator.table¦W_Generator" /> 
+		//ï¿½Nï¿½ï¿½ï¿½É¦Wï¿½ï¦¨   "tableï¿½W_Generator" ï¿½ï¿½×§ï¿½ï¿½ï¿½jï¿½uï¿½ï¿½ï¿½Tï¿½ï¿½{ï¿½ï¿½ 
+		//ï¿½sï¿½Ð¤@ï¿½ï¿½ package ï¿½ï¿½ï¿½W "generator" ï¿½Nï¿½ï¿½ï¿½É©ï¿½mï¿½ä¤º
+		//ï¿½×§ï¿½ xxxVO.javaï¿½Uï¿½ï¿½ï¿½Mï¿½gï¿½ï¿½      <generator class="generator.tableï¿½W_Generator" /> 
 		
 		
 		//------------------------------------------------
-		String tableName="COMPANY"; //table¦WºÙ
-		String fieldName="com_id";      //"½s¸¹"Äæ¦ì¦WºÙ
-		String name="C";                //½s¸¹±MÄÝ¶}ÀY¥N¸¹
+		String tableName="COMPANY"; //tableï¿½Wï¿½ï¿½
+		String fieldName="com_id";      //"ï¿½sï¿½ï¿½"ï¿½ï¿½ï¿½Wï¿½ï¿½
+		String name="C";                //ï¿½sï¿½ï¿½ï¿½Mï¿½Ý¶}ï¿½Yï¿½Nï¿½ï¿½
 		//------------------------------------------------------
 		
 		String newID;

@@ -15,7 +15,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
         <property name="jndiName" value="java:/comp/env/jdbc/ePOS"/> 
     </bean> 
     
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" destroy-method="destroy"> 
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" destroy-method="destroy"> 
         <property name="dataSource" ref="dataSource"/> 
         <property name="mappingResources"> 
             <list> 
@@ -62,12 +62,13 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
                 <prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>
-                <prop key="hibernate.current_session_context_class">thread</prop>
+<!--                 <prop key="hibernate.current_session_context_class">thread</prop> -->
+                <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop>
             </props> 
         </property> 
     </bean> 
 
-    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
         <property name="sessionFactory" ref="sessionFactory"/> 
     </bean>    
          
@@ -162,7 +163,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
     
 
 	<bean id="transactionManager"
-        class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 

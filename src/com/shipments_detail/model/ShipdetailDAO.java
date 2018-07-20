@@ -3,7 +3,7 @@ package com.shipments_detail.model;
 
 import java.util.List;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 public class ShipdetailDAO implements ShipdetailDAO_interface {
 
@@ -35,7 +35,7 @@ public class ShipdetailDAO implements ShipdetailDAO_interface {
 	@Override
 	public List<ShipdetailVO> findByShipId(String ship_id) {
 		List<ShipdetailVO> list = null;
-		list=hibernateTemplate.find(GET_SHIPDETAIL_ByShip_STMT,ship_id);
+		list=(List<ShipdetailVO>) hibernateTemplate.find(GET_SHIPDETAIL_ByShip_STMT,ship_id);
 			
 		return list;
 	}

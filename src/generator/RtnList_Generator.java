@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.Date;
 
 import org.hibernate.HibernateException;
-import org.hibernate.engine.SessionImplementor;
+import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.id.IdentifierGenerator;
 
 public class RtnList_Generator implements IdentifierGenerator{

@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import hibernate.util.HibernateUtil;
 
@@ -55,28 +55,28 @@ public class PromotingDAO implements PromotingDAO_interface{
 	@Override
 	public List<PromotingVO> getAll() {
 		List<PromotingVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_STMT);
+		list = (List<PromotingVO>) hibernateTemplate.find(GET_ALL_STMT);
 		return list;
 	}
 
 	@Override
 	public List<PromotingVO> getIds(String pro_prod_id1, String pro_prod_id2) {
 		List<PromotingVO> list = null;
-		list = hibernateTemplate.find(GET_IDS_STMT, new String[]{pro_prod_id1, pro_prod_id2});		
+		list = (List<PromotingVO>) hibernateTemplate.find(GET_IDS_STMT, new String[]{pro_prod_id1, pro_prod_id2});		
 		return list;
 	}
 
 	@Override
 	public List<PromotingVO> getDates(Date pro_begin, Date pro_end) {
 		List<PromotingVO> list = null;
-		list = hibernateTemplate.find(GET_DATES_STMT, new Date[]{pro_begin, pro_end});		
+		list = (List<PromotingVO>) hibernateTemplate.find(GET_DATES_STMT, new Date[]{pro_begin, pro_end});		
 		return list;	
 	}
 
 	@Override
 	public List<PromotingVO> getNames(String pro_prod_name) {
 		List<PromotingVO> list = null;
-		list = hibernateTemplate.find(GET_NAMES_STMT,"%"+pro_prod_name+"%");
+		list = (List<PromotingVO>) hibernateTemplate.find(GET_NAMES_STMT,"%"+pro_prod_name+"%");
 		return list;	
 	}
 
@@ -86,7 +86,7 @@ public class PromotingDAO implements PromotingDAO_interface{
 		List<PromotingVO> list = new ArrayList<PromotingVO>();
 		PromotingVO PromVO = null;
 		List<String> temp = null;
-		temp = hibernateTemplate.find(GET_IDGROUP_STMT);
+		temp = (List<String>) hibernateTemplate.find(GET_IDGROUP_STMT);
 		Iterator<String> iterator =	temp.iterator();
 			while(iterator.hasNext()) {
 				PromVO = new PromotingVO();
@@ -99,7 +99,7 @@ public class PromotingDAO implements PromotingDAO_interface{
 	@Override
 	public List<PromotingVO> findByIDs(String pro_prod_id) {
 		List<PromotingVO> list = null;
-		list = hibernateTemplate.find(GET_BYIDGROUP_STMT, pro_prod_id);
+		list = (List<PromotingVO>) hibernateTemplate.find(GET_BYIDGROUP_STMT, pro_prod_id);
 
 		return list;
 	}

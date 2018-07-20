@@ -3,8 +3,8 @@ package com.requisition_detail.model;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.engine.query.ReturnMetadata;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+//import org.hibernate.engine.query.ReturnMetadata;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.quotation_detail.model.QuoDetailVO;
 
@@ -33,7 +33,7 @@ public class ReqDetailDAO implements ReqDetail_Interface{
 	@Override
 	public List<ReqDetailVO> findByReqId(String req_id) {
 		List<ReqDetailVO> list = null;
-		list=hibernateTemplate.find(GET_ONE_STMT,req_id);
+		list=(List<ReqDetailVO>) hibernateTemplate.find(GET_ONE_STMT,req_id);
 			
 		return list;
 	}

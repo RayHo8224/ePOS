@@ -1,7 +1,7 @@
 package com.invo.model;
 
 import java.util.List;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 
 
@@ -44,7 +44,7 @@ public class InvoDAO implements InvoDAO_interface {
 	@Override
 	public List<InvoVO> getAll() {
 		List<InvoVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_STMT);
+		list = (List<InvoVO>) hibernateTemplate.find(GET_ALL_STMT);
 		return list;
 	}
 }

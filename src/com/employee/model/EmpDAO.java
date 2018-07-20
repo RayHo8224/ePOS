@@ -3,7 +3,7 @@ package com.employee.model;
 import java.io.IOException;
 import java.util.List;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 
 public class EmpDAO implements EmpDAO_interface {
@@ -45,14 +45,14 @@ public class EmpDAO implements EmpDAO_interface {
 	@Override
 	public List<EmpVO> getAll() throws IOException {
 		List<EmpVO> list = null;
-		list= hibernateTemplate.find(GET_ALL_STMT);
+		list= (List<EmpVO>) hibernateTemplate.find(GET_ALL_STMT);
 		
 		return list;
 	}
 	@Override
 	public List<EmpVO> findByName(String emp_name) {
 		List<EmpVO> list = null;
-			list= hibernateTemplate.find("from EmpVO where emp_name like '%"+emp_name+"%'");
+			list= (List<EmpVO>) hibernateTemplate.find("from EmpVO where emp_name like '%"+emp_name+"%'");
 		
 		return list;
 	}

@@ -11,7 +11,7 @@ import java.util.Map;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.order_detail.model.Order_DetailVO;
 import com.valuation_detail.model.Valuation_DetailVO;
@@ -43,7 +43,7 @@ public class ValuationSpringDAO implements Valuation_Interface {
 	public List Select_vlt_date(Date s_vlt_date, Date e_vlt_date) throws Exception {
 		
 		List<OrderVO> list = null;
-		list= hibernateTemplate.find(GET_ONE_STMT_VALUATIONDATE,new Object[]{s_vlt_date,e_vlt_date});
+		list= (List<OrderVO>) hibernateTemplate.find(GET_ONE_STMT_VALUATIONDATE,new Object[]{s_vlt_date,e_vlt_date});
 			
 		return list;
 	}
@@ -78,7 +78,7 @@ public class ValuationSpringDAO implements Valuation_Interface {
 	public List<ValuationVO> getAll() throws Exception {
 		
 		List<ValuationVO> list = null;
-		list= hibernateTemplate.find(GET_ALL_STMT);
+		list= (List<ValuationVO>) hibernateTemplate.find(GET_ALL_STMT);
 		
 		return list;
 	}
@@ -89,7 +89,7 @@ public class ValuationSpringDAO implements Valuation_Interface {
 	public List<ValuationVO> getAllByN() throws Exception {
 		
 		List<ValuationVO> list = null;
-		list= hibernateTemplate.find(GET_ALL_STMT_BY_N);
+		list= (List<ValuationVO>) hibernateTemplate.find(GET_ALL_STMT_BY_N);
 		
 		return list;
 	}

@@ -3,7 +3,7 @@ package com.shipments.model;
 import java.sql.Date;
 import java.util.List;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.shipments_detail.model.ShipdetailVO;
 
@@ -54,7 +54,7 @@ public class ShipSpringDAO implements ShipDAO_interface {
 	public List<ShipVO> getAll() {
 	
 		List<ShipVO> list = null;
-		list= hibernateTemplate.find(GET_ALL_STMT);
+		list= (List<ShipVO>) hibernateTemplate.find(GET_ALL_STMT);
 			
 		return list;
 	}
@@ -63,7 +63,7 @@ public class ShipSpringDAO implements ShipDAO_interface {
 	@Override
 	public List<ShipVO> findByDate(Date dateBegin, Date dateEnd) {
 		List<ShipVO> list = null;
-		list= hibernateTemplate.find(GET_ONE_STMT_ByDate,new Object[]{dateBegin,dateEnd});
+		list= (List<ShipVO>) hibernateTemplate.find(GET_ONE_STMT_ByDate,new Object[]{dateBegin,dateEnd});
 			
 		return list;
 	}
@@ -71,7 +71,7 @@ public class ShipSpringDAO implements ShipDAO_interface {
 	@Override
 	public List<ShipVO> findByOrderId(String ord_id) {
 		List<ShipVO> list = null;
-		list = hibernateTemplate.find(GET_ONE_STMT_ByOrderId,ord_id);
+		list = (List<ShipVO>) hibernateTemplate.find(GET_ONE_STMT_ByOrderId,ord_id);
 			
 		return list;
 	}

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.company.model.ComVO;
 import com.product.model.ProdVO;
@@ -82,7 +82,7 @@ public class QuoDAO implements Quo_Interface{
 	@Override
 	public List<QuoVO> findByReqid(String req_id) {
 		List<QuoVO> list = null;
-			list = hibernateTemplate.find(GET_ONE_STMT_ByReqId,req_id);
+			list = (List<QuoVO>) hibernateTemplate.find(GET_ONE_STMT_ByReqId,req_id);
 		return list;
 	}
 
@@ -90,7 +90,7 @@ public class QuoDAO implements Quo_Interface{
 	public List<QuoVO> getAll() {
 
 		List<QuoVO> list = null;
-			list = hibernateTemplate.find(GET_ALL_STMT);
+			list = (List<QuoVO>) hibernateTemplate.find(GET_ALL_STMT);
 		
 		return list;
 	}
@@ -98,7 +98,7 @@ public class QuoDAO implements Quo_Interface{
 	@Override
 	public List<QuoVO> findByDate(Date begin_date, Date end_date) {
 		List<QuoVO> list = null;
-		list= hibernateTemplate.find(GET_BY_DATE,new Object[]{begin_date,end_date});
+		list= (List<QuoVO>) hibernateTemplate.find(GET_BY_DATE,new Object[]{begin_date,end_date});
 			
 		return list;
 	}
@@ -112,7 +112,7 @@ public class QuoDAO implements Quo_Interface{
 	public List<ReqVO> findYReq() {
 		// TODO Auto-generated method stub
 		List<ReqVO> list = null;
-		list = hibernateTemplate.find(GET_Y_REQ);
+		list = (List<ReqVO>) hibernateTemplate.find(GET_Y_REQ);
 		return list;
 	}
 
@@ -127,7 +127,7 @@ public class QuoDAO implements Quo_Interface{
 	public List<QuoVO> selectOfN() {
 		// TODO Auto-generated method stub
 		List<QuoVO> list = null;
-		list = hibernateTemplate.find(SELECT_OF_N);
+		list = (List<QuoVO>) hibernateTemplate.find(SELECT_OF_N);
 		return list;
 	}
 
@@ -142,7 +142,7 @@ public class QuoDAO implements Quo_Interface{
 	public List<QuoVO> selectOfY() {
 		// TODO Auto-generated method stub
 		List<QuoVO> list = null;
-		list = hibernateTemplate.find(SELECT_OF_Y);
+		list = (List<QuoVO>) hibernateTemplate.find(SELECT_OF_Y);
 		return list;
 	}
 
@@ -150,7 +150,7 @@ public class QuoDAO implements Quo_Interface{
 	public String getComId(String com_name) {
 		// TODO Auto-generated method stub
 		String com_id = null;
-		List<ComVO> list = hibernateTemplate.find(GET_COM_ID, com_name);
+		List<ComVO> list = (List<ComVO>) hibernateTemplate.find(GET_COM_ID, com_name);
 		com_id = list.get(0).getCom_id();
 		return com_id;
 	}
@@ -159,7 +159,7 @@ public class QuoDAO implements Quo_Interface{
 	public List<ProdVO> getAllProd() {
 		// TODO Auto-generated method stub
 		List<ProdVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_PROD);
+		list = (List<ProdVO>) hibernateTemplate.find(GET_ALL_PROD);
 		return list;
 	}
 
@@ -167,7 +167,7 @@ public class QuoDAO implements Quo_Interface{
 	public List<ComVO> getCom() {
 		// TODO Auto-generated method stub
 		List<ComVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_COM);
+		list = (List<ComVO>) hibernateTemplate.find(GET_ALL_COM);
 		return list;
 	}
 

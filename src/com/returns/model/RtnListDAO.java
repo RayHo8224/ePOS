@@ -3,7 +3,7 @@ package com.returns.model;
 import java.sql.Date;
 import java.util.List;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 public class RtnListDAO implements RtnList_Interface{
 	
@@ -42,7 +42,7 @@ public class RtnListDAO implements RtnList_Interface{
 	@Override
 	public List<RtnListVO> findByDate(Date ret_date) {
 		List<RtnListVO> list = null;
-		list = hibernateTemplate.find(FIND_DATE, ret_date);
+		list = (List<RtnListVO>) hibernateTemplate.find(FIND_DATE, ret_date);
 		return list;
 	}
 
@@ -50,7 +50,7 @@ public class RtnListDAO implements RtnList_Interface{
 	@Override
 	public List<RtnListVO> getfindById(String ret_id) {
 		List<RtnListVO> list = null;
-		list = hibernateTemplate.find(FIND_ID, ret_id);
+		list = (List<RtnListVO>) hibernateTemplate.find(FIND_ID, ret_id);
 		return list;
 	}
 
@@ -58,7 +58,7 @@ public class RtnListDAO implements RtnList_Interface{
 	@Override
 	public List<RtnListVO> findByCom(String com_name) {
 		List<RtnListVO> list = null;
-		list = hibernateTemplate.find(FIND_COM, com_name);
+		list = (List<RtnListVO>) hibernateTemplate.find(FIND_COM, com_name);
 		return list;
 	}
 
@@ -66,7 +66,7 @@ public class RtnListDAO implements RtnList_Interface{
 	@Override
 	public List<RtnListVO> getAll() {
 		List<RtnListVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_LIST);
+		list = (List<RtnListVO>) hibernateTemplate.find(GET_ALL_LIST);
 		return list;
 	}
 
@@ -74,7 +74,7 @@ public class RtnListDAO implements RtnList_Interface{
 	@Override
 	public List<RtnDetailVO> findByDetail(String ret_id) {
 		List<RtnDetailVO> list = null;
-		list = hibernateTemplate.find(FIND_COM,ret_id);
+		list = (List<RtnDetailVO>) hibernateTemplate.find(FIND_COM,ret_id);
 		return list;
 	}
 

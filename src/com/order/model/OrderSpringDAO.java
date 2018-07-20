@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import com.employee.model.EmpVO;
 import com.order_detail.model.Order_DetailVO;
 import com.product.model.ProdVO;
@@ -46,7 +46,7 @@ public class OrderSpringDAO implements Order_Interface {
 	public List Select_ord_date(Date s_ord_date, Date e_ord_date) throws Exception {
 
 		List<OrderVO> list = null;
-		list = hibernateTemplate.find(GET_ONE_STMT_ORDERDATE, new Object[] { s_ord_date, e_ord_date });
+		list = (List<OrderVO>) hibernateTemplate.find(GET_ONE_STMT_ORDERDATE, new Object[] { s_ord_date, e_ord_date });
 //		System.out.println("list size="+list.size());
 		return list;
 	}
@@ -76,7 +76,7 @@ public class OrderSpringDAO implements Order_Interface {
 	public List<OrderVO> getAll() throws Exception {
 
 		List<OrderVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_STMT);
+		list = (List<OrderVO>) hibernateTemplate.find(GET_ALL_STMT);
 
 		return list;
 	}
@@ -87,7 +87,7 @@ public class OrderSpringDAO implements Order_Interface {
 	public List<OrderVO> getAllWeather(String weather) throws Exception {
 
 		List<OrderVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_STMT_WEATHER,weather);
+		list = (List<OrderVO>) hibernateTemplate.find(GET_ALL_STMT_WEATHER,weather);
 
 		return list;
 	}
@@ -190,7 +190,7 @@ public class OrderSpringDAO implements Order_Interface {
 
 		List<OrderVO> list = null;
 		OrderVO orderVO = null; 
-		list = hibernateTemplate.find(GET_ONE_TOP_ORDID);
+		list = (List<OrderVO>) hibernateTemplate.find(GET_ONE_TOP_ORDID);
 		
 		if (list!= null){
 			for(OrderVO orderVO1: list){
@@ -212,7 +212,7 @@ public class OrderSpringDAO implements Order_Interface {
 		System.out.println("OrdDAO");
 	
 		List<OrderVO> list = null;
-		list = hibernateTemplate.find(GET_ONE_STMT_ORDERDATEANDSHIFT,new Object[]{s_ord_date,shift});
+		list = (List<OrderVO>) hibernateTemplate.find(GET_ONE_STMT_ORDERDATEANDSHIFT,new Object[]{s_ord_date,shift});
 
 		return list;
 	}
@@ -222,7 +222,7 @@ public class OrderSpringDAO implements Order_Interface {
 	public List<OrderVO> getOrdPrice() {
 		List<OrderVO> list = new ArrayList<OrderVO>();
 		
-		 list = hibernateTemplate.find("from OrderVO where ord_date between '2016-10-01' and '2016-10-31'");
+		 list = (List<OrderVO>) hibernateTemplate.find("from OrderVO where ord_date between '2016-10-01' and '2016-10-31'");
 			
 		return list;
 

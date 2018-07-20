@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.Date;
 
 import org.hibernate.HibernateException;
-import org.hibernate.engine.SessionImplementor;
+import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.id.IdentifierGenerator;
 
 public class Quo_Generator implements IdentifierGenerator {

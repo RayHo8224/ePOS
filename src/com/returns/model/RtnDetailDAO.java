@@ -2,7 +2,7 @@ package com.returns.model;
 
 import java.util.List;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 public class RtnDetailDAO implements RtnDetail_Interface{
 	
@@ -37,7 +37,7 @@ public class RtnDetailDAO implements RtnDetail_Interface{
 	public RtnDetailVO findByPrimaryKey(String ret_id, String prod_name) {
 		RtnDetailVO rtnDetailVO=null;
 	
-		List<RtnDetailVO> list=hibernateTemplate.find(FindByPrimaryKey, new Object[]{ret_id,prod_name});
+		List<RtnDetailVO> list=(List<RtnDetailVO>) hibernateTemplate.find(FindByPrimaryKey, new Object[]{ret_id,prod_name});
 		System.out.println("list-------->"+list);
 		for(RtnDetailVO detailUpdate:list)
 		{
@@ -52,7 +52,7 @@ public class RtnDetailDAO implements RtnDetail_Interface{
 	@Override
 	public List<RtnDetailVO> findById(String ret_id) {
 		List<RtnDetailVO> list = null;
-		list = hibernateTemplate.find(GET_ID,ret_id);
+		list = (List<RtnDetailVO>) hibernateTemplate.find(GET_ID,ret_id);
 		return list;
 	}
 	
@@ -60,7 +60,7 @@ public class RtnDetailDAO implements RtnDetail_Interface{
 	@Override
 	public List<RtnDetailVO> findByName(String prod_name) {
 		List<RtnDetailVO> list = null;
-		list = hibernateTemplate.find(GET_NAME,prod_name);
+		list = (List<RtnDetailVO>) hibernateTemplate.find(GET_NAME,prod_name);
 		return list;
 	}
 
@@ -68,7 +68,7 @@ public class RtnDetailDAO implements RtnDetail_Interface{
 	@Override
 	public List<RtnDetailVO> getAll() {
 		List<RtnDetailVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_STMT);
+		list = (List<RtnDetailVO>) hibernateTemplate.find(GET_ALL_STMT);
 		return list;
 	}
 

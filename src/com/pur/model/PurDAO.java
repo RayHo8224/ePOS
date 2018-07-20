@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.company.model.ComVO;
 import com.product.model.ProdVO;
@@ -77,7 +77,7 @@ public class PurDAO implements Pur_Interface {
 	public List<Pur_detailVO> findDetailByPrimaryKey(String pur_id) {
 		// TODO Auto-generated method stub
 //		Set<Pur_detailVO> set = findByPrimaryKey(pur_id).getPurs();
-		List<Pur_detailVO> set = hibernateTemplate.find(GET_DETAIL_ALL,pur_id);
+		List<Pur_detailVO> set = (List<Pur_detailVO>) hibernateTemplate.find(GET_DETAIL_ALL,pur_id);
 		return set;
 	}
 
@@ -85,7 +85,7 @@ public class PurDAO implements Pur_Interface {
 	public List<PurVO> getAll() {
 		// TODO Auto-generated method stub
 		List<PurVO> list = null;
-		list = hibernateTemplate.find(GETALL);
+		list = (List<PurVO>) hibernateTemplate.find(GETALL);
 		return list;
 	}
 	
@@ -98,7 +98,7 @@ public class PurDAO implements Pur_Interface {
 	public List<ComVO> getCom() {
 		// TODO Auto-generated method stub
 		List<ComVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_COM);
+		list = (List<ComVO>) hibernateTemplate.find(GET_ALL_COM);
 		return list;
 	}
 
@@ -106,7 +106,7 @@ public class PurDAO implements Pur_Interface {
 	public List<ProdVO> getProd(String com_id) {
 		// TODO Auto-generated method stub
 		List<ProdVO> list = null;
-		list = hibernateTemplate.find(GET_ALL_PROD, com_id);
+		list = (List<ProdVO>) hibernateTemplate.find(GET_ALL_PROD, com_id);
 		return list;
 	}
 
@@ -116,7 +116,7 @@ public class PurDAO implements Pur_Interface {
 	public List<ProdVO> getProdById(String prod_name) {
 		// TODO Auto-generated method stub
 		List<ProdVO> list = null;
-		list = hibernateTemplate.find(GET_PROD, prod_name);
+		list = (List<ProdVO>) hibernateTemplate.find(GET_PROD, prod_name);
 		return list;
 	}
 
@@ -124,7 +124,7 @@ public class PurDAO implements Pur_Interface {
 	public List<PurVO> findByDate(Date begin_date, Date end_date) {
 		// TODO Auto-generated method stub
 		List<PurVO> list = null;
-		list = hibernateTemplate.find(GET_BY_DATE, new Object[]{begin_date,end_date});
+		list = (List<PurVO>) hibernateTemplate.find(GET_BY_DATE, new Object[]{begin_date,end_date});
 		return list;
 	}
 
@@ -132,7 +132,7 @@ public class PurDAO implements Pur_Interface {
 	public List<PurVO> selectOfN() {
 		// TODO Auto-generated method stub
 		List<PurVO> list=null;
-		list = hibernateTemplate.find(SELECT_OF_N);
+		list = (List<PurVO>) hibernateTemplate.find(SELECT_OF_N);
 		return list;
 	}
 
@@ -140,7 +140,7 @@ public class PurDAO implements Pur_Interface {
 	public List<ComVO> getOneCom(String com_name) {
 		// TODO Auto-generated method stub
 		List<ComVO> list = null;
-		list = hibernateTemplate.find(GET_ONE_COM, com_name);
+		list = (List<ComVO>) hibernateTemplate.find(GET_ONE_COM, com_name);
 		return list;
 	}
 
