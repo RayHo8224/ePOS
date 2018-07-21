@@ -66,7 +66,7 @@ public class POS_Generator implements IdentifierGenerator {
 			  
 				System.out.println(newID);
 
-				con.close();
+//				con.close();
 		} catch (SQLException e) {
 			throw new HibernateException("Unable to generate Sequence");
 		}

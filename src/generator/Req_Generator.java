@@ -47,7 +47,7 @@ public class Req_Generator implements IdentifierGenerator {
 				
 			//-------------------------------------------------------------------
 
-				con.close();
+//				con.close();
 		} catch (SQLException e) {
 			throw new HibernateException("Unable to generate Sequence");
 		}
