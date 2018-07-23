@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.discount.model.DiscountService;
 import com.discount.model.DiscountVO;
-import gvjava.org.json.JSONArray;
 
 @Controller
 public class Disc_Controller  {

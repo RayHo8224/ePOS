@@ -63,7 +63,9 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
                 <prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
                 <prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>
 <!--                 <prop key="hibernate.current_session_context_class">thread</prop> -->
-                <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop>
+<!--                 <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop> -->
+                <!-- Sping4+Hibernate5需改為以下設定 -->
+                <prop key="current_session_context_class">thread</prop> 
             </props> 
         </property> 
     </bean> 

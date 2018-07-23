@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+
+import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +36,6 @@ import com.product.model.ProdService;
 import com.product.model.ProdVO;
 import com.shiftreport.model.ShiftreService;
 import com.shiftreport.model.ShiftreVO;
-import gvjava.org.json.JSONArray;
 
 /**
  * Servlet implementation class Shiftreport_Servlet

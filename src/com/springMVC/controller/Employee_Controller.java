@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,8 +29,6 @@ import com.discount.model.DiscountVO;
 import com.employee.model.EmpService;
 import com.employee.model.EmpVO;
 
-import gvjava.org.json.JSONArray;
-import gvjava.org.json.JSONObject;
 
 
 /**

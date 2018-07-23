@@ -11,6 +11,8 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +28,6 @@ import com.pur.model.PurService;
 import com.pur.model.PurVO;
 import com.pur_detail.model.Pur_detailVO;
 
-import gvjava.org.json.JSONArray;
-import gvjava.org.json.JSONObject;
 
 @Controller
 public class BILL_OF_PURCHASE_Controller {

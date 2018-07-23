@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.json.JSONArray;
 import org.json.simple.JSONValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -36,7 +38,6 @@ import com.valuation.model.ValuationService;
 import com.valuation.model.ValuationVO;
 import com.valuation_detail.model.Valuation_DetailVO;
 
-import gvjava.org.json.JSONArray;
 
 @Controller
 public class Order_Controller extends HttpServlet implements Runnable {

@@ -9,6 +9,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.product.model.ProdService;
 import com.product.model.ProdVO;
 
-import gvjava.org.json.JSONObject;
 
 /**
  * Servlet implementation class Company_Servlet
