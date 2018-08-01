@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.invo.model.InvoVO" table="INVOICEINVALID">
+
+		<id name="invoice_id" column="invoice_id"></id>
+
+		<property name="ord_id" column="ord_id" />
+		<property name="new_invoice_number" column="new_invoice_number" />
+		<property name="new_ord_id" column="new_ord_id" />
+
+	</class>
+</hibernate-mapping>
+

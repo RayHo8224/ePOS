@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.quotation_detail.model.QuoDetailVO" table="dbo.QUOTATION_DETAIL">
+	
+		<composite-id>
+		
+<!-- 			<key-many-to-one name="quoVO" class="com.quotation.model.QuoVO" lazy="false"> -->
+			<key-many-to-one name="quoVO" class="com.quotation.model.QuoVO" >
+			<column name="quo_id"></column>
+			
+			</key-many-to-one>
+			
+			<key-property name="prod_name" column="prod_name" /> 
+			
+		</composite-id>
+		
+		
+<!-- 		<property name="prod_name" column="prod_name" /> -->
+		<property name="prod_quantity" column="prod_quantity" />
+		<property name="com_name" column="com_name" />
+		<property name="prod_cost" column="prod_cost" />
+<!-- 		<property name="delivery_date" column="delivery_date" /> -->
+		<property name="remark" column="remark" />
+<!-- 		<property name="key_id" column="key_id" /> -->
+<!-- 		<property name="key_date" column="key_date" /> -->
+		
+	</class>
+</hibernate-mapping>

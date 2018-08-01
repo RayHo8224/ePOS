@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.requisition_detail.model.ReqDetailVO" table="dbo.REQUISITION_DETAIL">
+	
+		<composite-id>
+<!-- 			<key-many-to-one name="reqVO" class="com.requisition.model.ReqVO" lazy="false"> -->
+			<key-many-to-one name="reqVO" class="com.requisition.model.ReqVO">
+				<column name = "req_id"/>
+			</key-many-to-one>	
+
+			
+			<key-property name="prod_name" column="prod_name" />	
+		</composite-id>
+	
+	<property name="prod_quantity" column="prod_quantity"/>	
+				
+	</class>
+
+</hibernate-mapping>

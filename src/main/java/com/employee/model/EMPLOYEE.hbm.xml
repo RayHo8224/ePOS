@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.employee.model.EmpVO" table="dbo.EMPLOYEE">
+
+		<id name="emp_id" column="emp_id"> 
+ 			<generator class="generator.Emp_Generator" /> 
+		</id>
+<!-- 		<property name="emp_id" column="emp_pwd" /> -->
+		<property name="emp_pwd" column="emp_pwd" />
+		<property name="emp_name" column="emp_name" />
+		<property name="emp_sex" column="emp_sex" />
+		<property name="emp_idnum" column="emp_idnum" />
+		<property name="emp_addr" column="emp_addr" />
+		<property name="emp_mail" column="emp_mail" />
+		<property name="emp_phone" column="emp_phone" />
+		<property name="emp_bday" column="emp_bday" />
+		<property name="emp_reg" column="emp_reg" />
+		<property name="emp_due" column="emp_due" />
+		<property name="picture" column="picture" />
+		<property name="key_id" column="key_id" />
+		<property name="key_date" column="key_date" />
+		<property name="pass_code" column="pass_code" />
+
+
+	</class>
+</hibernate-mapping>

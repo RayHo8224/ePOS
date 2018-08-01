@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.coupon.model.CouponVO" table="COUPON">
+
+	<id name="cpon_id" column="cpon_id">
+		<generator class="generator.Cpon_Generator" /> 
+	</id>
+	<property name="cpon_name" column="cpon_name"/>
+	<property name="release_date" column="release_date"/>
+	<property name="cpon_period" column="cpon_period"/>
+	<property name="cpon_dollar" column="cpon_dollar"/>	
+	<property name="status" column="status"/>	
+	</class>
+</hibernate-mapping>

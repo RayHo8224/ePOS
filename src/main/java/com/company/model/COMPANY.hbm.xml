@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.company.model.ComVO" table="dbo.COMPANY">
+
+		<id name="com_id" column="com_id"> 
+ 				<generator class="generator.Com_Generator" /> 
+		</id>
+		
+		<property name="com_name" column="com_name" />
+		<property name="com_um" column="com_um" />
+		<property name="com_phone" column="com_phone" />
+		<property name="com_addr" column="com_addr" />
+		<property name="com_mail" column="com_mail" />
+		<property name="picture" column="picture" />
+		<property name="key_id" column="key_id" />
+		<property name="key_date" column="key_date" />
+
+
+	</class>
+</hibernate-mapping>
