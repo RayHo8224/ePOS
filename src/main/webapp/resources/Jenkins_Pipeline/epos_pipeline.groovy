@@ -33,12 +33,17 @@ node{ timestamps{
    }
 
    stage('Deploy'){
+try{
     sh 'ssh root@epos_ap1 sh "/home/jboss-eap-7.1/bin/jboss-cli.sh --connect /server-group=main-server-group:stop-servers"'
     sh 'ssh root@epos_ap1 sh "/home/jboss-eap-7.1/bin/jboss-cli.sh --connect --command=\'undeploy ePOS.war --server-groups=main-server-group\'"'
     sh 'ssh root@epos_ap1 sh "/home/jboss-eap-7.1/bin/jboss-cli.sh --connect --command=\'deploy /Docker_Share/jenkins_home/workspace/ePOS/target/ePOS.war --server-groups=main-server-group\'"'
     sh 'ssh root@epos_ap1 sh "/home/jboss-eap-7.1/bin/jboss-cli.sh --connect /server-group=main-server-group:start-servers"'
-   
+}catch (Exception ex) {
+    sh 'ssh root@epos_ap1 sh "/home/jboss-eap-7.1/bin/jboss-cli.sh --connect /server-group=main-server-group:stop-servers"'
+    sh 'ssh root@epos_ap1 sh "/home/jboss-eap-7.1/bin/jboss-cli.sh --connect --command=\'deploy /Docker_Share/jenkins_home/workspace/ePOS/target/ePOS.war --server-groups=main-server-group\'"'
+    sh 'ssh root@epos_ap1 sh "/home/jboss-eap-7.1/bin/jboss-cli.sh --connect /server-group=main-server-group:start-servers"'
 
+}
    }
 
     
